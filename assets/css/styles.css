@@ -1,0 +1,149 @@
+body {  
+    background-color: black; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.cartel_robotech {
+    position: absolute;
+    top: -50px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px; 
+}
+
+.card {
+    top: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#cabecera {
+    position: absolute;
+    margin-left: 60px;
+    top: -30px;
+    background-color: #0e2741;
+    width: 160px;
+    height: 30px;
+    border: solid;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: x-large;
+    color: rgb(253, 237, 11);
+    padding: 6px;
+    text-align: center;
+}
+
+.info-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: 5px 0;
+}
+
+.info-row h1,
+.info-row {
+    color: #FFDD57;
+    font-size: 1.2em;
+    padding: 2px;
+    margin: 0 5px;
+}
+
+.descripcion {
+    font-weight: normal;
+    color: #fefefe;
+    font-size: 1.2em;
+    margin: 0 5px;
+}
+
+article {
+    position: relative;
+    width: 250px;
+    transition: all 0.3s ease;
+}
+
+article:hover {
+    transform: perspective(250px) rotateX(10deg) translateY(-5%) translateZ(0);
+}
+
+/* Gradiente que aparece al hacer hover */
+article::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 308px;
+    background-image: linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0) 95%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1; /* Asegúrate de que el pseudo-elemento esté detrás */
+}
+
+article:hover::before {
+    opacity: 1;
+}
+
+/* Imagen "guardian" - Aparece inmediatamente al hacer hover */
+article img:nth-child(2) {
+    position: absolute;
+    width: 350px; /* Más grande */
+    bottom: 50px; /* Desplazado hacia arriba */
+    left: 90%;
+    transform: translateX(-50%) translateY(10%); /* Centrado horizontalmente */
+    opacity: 0;
+    transition: opacity 0.5s ease-in, transform 0.2s ease-in;
+    z-index: 2; /* Asegúrate de que la imagen guardian esté encima del pseudo-elemento */
+}
+
+/* Imagen "battloid" - Aparece después de que "guardian" se oculta */
+article img:last-child {
+    position: absolute;
+    margin-left: 200px;
+    width: 250px;
+    bottom: 0;
+    left: 50%; /* Centrado horizontalmente */
+    transform: translateX(-50%) translateY(-10%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in 0.5s, transform 0.3s ease-in-out 0.5s; /* Aparece después de 0.5 segundos */
+    z-index: 3; /* Asegúrate de que la imagen battloid esté encima de todo */
+}
+
+/* Efecto al hacer hover en la tarjeta */
+article:hover img:nth-child(2) {
+    opacity: 1;
+}
+
+/* Mostrar "battloid" después de que "guardian" se oculta */
+article:hover img:last-child {
+    opacity: 1;
+    transform: translateY(-30%);    
+  
+}
+
+#valquiria {
+    width: 308px;
+}
+
+.tarjeta {
+    width: 300px; 
+}
