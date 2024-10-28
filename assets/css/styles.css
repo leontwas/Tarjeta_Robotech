@@ -117,7 +117,7 @@ article img:nth-child(2) {
 
 /* Imagen "battloid" - Aparece después de que "guardian" se oculta */
 article img:last-child {
-    position: absolute;
+    position:absolute;
     margin-left: 200px;
     width: 250px;
     bottom: 0;
